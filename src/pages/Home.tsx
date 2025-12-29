@@ -1,9 +1,9 @@
-import Aside from '../components/Aside/Aside'
+import '../components/Aside/Aside.css'
 
 function Home() {
   return (
     <>
-      <Aside />
+      <aside></aside>
       <main>
         <h1>Home</h1>
         <p>Bem-vindo ao projeto.</p>
