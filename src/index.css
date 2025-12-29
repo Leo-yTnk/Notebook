@@ -13,24 +13,92 @@
   --gray4: var(--dgray4);
   --gray5: var(--dgray5);
   --gray6: var(--dgray6);
+
+  --tgray1: var(--tdgray1);
+  --tgray2: var(--tdgray2);
+  --tgray3: var(--tdgray3);
+  --tgray4: var(--tdgray4);
+  --tgray5: var(--tdgray5);
+  --tgray6: var(--tdgray6);
+
   --text-primary:   var(--lgray2);
   --text-secondary: var(--lgray4);
 
-  --lgray1: rgb(250, 250, 255);
+  --lgray1: rgb(255, 255, 255);
   --lgray2: color-mix(in srgb, var(--lgray1) 95%, black);
   --lgray3: color-mix(in srgb, var(--lgray1) 90%, black);
   --lgray4: color-mix(in srgb, var(--lgray1) 85%, black);
   --lgray5: color-mix(in srgb, var(--lgray1) 80%, black);
   --lgray6: color-mix(in srgb, var(--lgray1) 75%, black);
 
-  --dgray1: rgb(0, 0, 5);
-  --dgray2: color-mix(in srgb, var(--dgray1) 95%, white);
-  --dgray3: color-mix(in srgb, var(--dgray1) 90%, white);
-  --dgray4: color-mix(in srgb, var(--dgray1) 85%, white);
-  --dgray5: color-mix(in srgb, var(--dgray1) 80%, white);
-  --dgray6: color-mix(in srgb, var(--dgray1) 75%, white);
+  --tlgray1: color-mix(in srgb, var(--lgray1) 80%, transparent);
+  --tlgray2: color-mix(in srgb, var(--lgray2) 80%, transparent);
+  --tlgray3: color-mix(in srgb, var(--lgray3) 80%, transparent);
+  --tlgray4: color-mix(in srgb, var(--lgray4) 80%, transparent);
+  --tlgray5: color-mix(in srgb, var(--lgray5) 80%, transparent);
+  --tlgray6: color-mix(in srgb, var(--lgray6) 80%, transparent);
+
+  --dgray1: rgb(0, 0, 0);
+  --dgray2: color-mix(in srgb, var(--dgray1) 96.6%, white);
+  --dgray3: color-mix(in srgb, var(--dgray1) 93.3%, white);
+  --dgray4: color-mix(in srgb, var(--dgray1) 90%, white);
+  --dgray5: color-mix(in srgb, var(--dgray1) 86.6%, white);
+  --dgray6: color-mix(in srgb, var(--dgray1) 83.3%, white);
+
+  --tdgray1: color-mix(in srgb, var(--dgray1) 80%, transparent);
+  --tdgray2: color-mix(in srgb, var(--dgray2) 80%, transparent);
+  --tdgray3: color-mix(in srgb, var(--dgray3) 80%, transparent);
+  --tdgray4: color-mix(in srgb, var(--dgray4) 80%, transparent);
+  --tdgray5: color-mix(in srgb, var(--dgray5) 80%, transparent);
+  --tdgray6: color-mix(in srgb, var(--dgray6) 80%, transparent);
+
+  --surface-background: var(--gray1);
+
+  --surface-chrome-bg-color: var(--gray2);
+  --surface-chrome-bd-color: var(--gray3);
+
+  --header-height: 2.75rem;
+  --aside-width:   13.5rem;
+
+  --main-padding: 2rem;
 }
 
 body {
-  background-color: var(--gray2);
+  background-color: var(--surface-background);
+}
+
+main {
+  padding:      var(--main-padding);
+  padding-left: calc(var(--aside-width) + 1px + var(--main-padding));
+  padding-top:  calc(var(--header-height) + 1px + var(--main-padding));
+}
+
+header, aside {
+  position:         fixed;
+  background-color: var(--surface-chrome-bg-color);
+  border-color:     var(--surface-chrome-bd-color);
+}
+
+.page-header {
+  width:               100%;
+  height:              var(--header-height);
+  padding-left:        calc(var(--aside-width) + 1px);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+
+aside {
+  width:              var(--aside-width);
+  height:             100%;
+  border-right-style: solid;
+  border-right-width: 1px;
+}
+
+.sidebar-header {
+  display: flex;
+}
+
+.sidebar-header button {
+  background-color: transparent;
+  border:           none;
 }
