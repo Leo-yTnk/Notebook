@@ -1,9 +1,14 @@
+import Aside from '../components/Aside/Aside'
+
 function Home() {
   return (
-    <main>
-      <h1>Home</h1>
-      <p>Bem-vindo ao projeto.</p>
-    </main>
+    <>
+      <Aside />
+      <main>
+        <h1>Home</h1>
+        <p>Bem-vindo ao projeto.</p>
+      </main>
+    </>
   )
 }
 
