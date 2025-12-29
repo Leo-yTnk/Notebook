@@ -1,4 +1,5 @@
 import "../styles/Aside.css"
+import { Person, PersonFill } from "react-bootstrap-icons";
 
 function Home() {
   return (
@@ -10,9 +11,8 @@ function Home() {
       <aside className="sidebar">
         <header className="sidebar-header">
           <button className="account">
-            <svg className="bi" width="32" height="32" fill="currentColor">
-              <use href="bootstrap-icons.svg#home"/>
-            </svg>
+            <Person     size={32} className="icon outline-icon" />
+            <PersonFill size={32} className="icon fill-icon" />
           </button>
         </header>
       </aside>

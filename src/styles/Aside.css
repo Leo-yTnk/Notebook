@@ -1,1 +1,34 @@
 
+.sidebar-header {
+  display: flex;
+}
+
+.sidebar-header button {
+  position: relative;
+  width:    2.5rem;
+  height:   2.5rem;
+}
+
+.sidebar-header button .icon {
+  position:     absolute;
+  align-self:   center;
+  justify-self: center;
+  inset:        0;
+  transition:   opacity 0.25s ease;
+}
+
+.sidebar-header button .outline-icon {
+  opacity: 1;
+}
+
+.sidebar-header button .fill-icon {
+  opacity: 0;
+}
+
+.sidebar-header button:hover .outline-icon {
+  opacity: 0;
+}
+
+.sidebar-header button:hover .fill-icon {
+  opacity: 1;
+}

@@ -1,9 +1,11 @@
 * {
-  margin:  0;
-  padding: 0;
+  margin:      0;
+  padding:     0;
+  box-sizing: border-box;
+
   font-family: 'Inter', sans-serif;
   line-height: 1.15;
-  color: var(--text-primary);
+  color:       var(--text-primary);
 }
 
 :root {
@@ -52,19 +54,23 @@
   --tdgray5: color-mix(in srgb, var(--dgray5) 80%, transparent);
   --tdgray6: color-mix(in srgb, var(--dgray6) 80%, transparent);
 
-  --surface-background: var(--gray1);
+  --surface-background-bg-color: var(--gray1);
 
-  --surface-chrome-bg-color: var(--gray2);
-  --surface-chrome-bd-color: var(--gray3);
+  --surface-chrome-bg-color:     var(--gray2);
+  --surface-chrome-border-color: var(--gray3);
+
+  --surface-chrome-layer-bg-color:     var(--gray3);
+  --surface-chrome-layer-border-color: var(--gray4);
 
   --header-height: 2.75rem;
   --aside-width:   13.5rem;
+  --aside-padding: 1rem;
 
   --main-padding: 2rem;
 }
 
 body {
-  background-color: var(--surface-background);
+  background-color: var(--surface-background-bg-color);
 }
 
 main {
@@ -76,7 +82,14 @@ main {
 header, aside {
   position:         fixed;
   background-color: var(--surface-chrome-bg-color);
-  border-color:     var(--surface-chrome-bd-color);
+  border-color:     var(--surface-chrome-border-color);
+}
+
+header button, 
+aside button {
+  background-color: var(--surface-chrome-layer-bg-color);
+  border:           1px solid var(--surface-chrome-border-color);
+  border-radius:    var(--);
 }
 
 .page-header {
@@ -90,15 +103,8 @@ header, aside {
 aside {
   width:              var(--aside-width);
   height:             100%;
+  padding:            var(--aside-padding);
   border-right-style: solid;
   border-right-width: 1px;
 }
 
-.sidebar-header {
-  display: flex;
-}
-
-.sidebar-header button {
-  background-color: transparent;
-  border:           none;
-}
