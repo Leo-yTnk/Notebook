@@ -9,6 +9,7 @@
 }
 
 :root {
+  /* Paleta de Cores */
   --gray1: var(--dgray1);
   --gray2: var(--dgray2);
   --gray3: var(--dgray3);
@@ -54,6 +55,29 @@
   --tdgray5: color-mix(in srgb, var(--dgray5) 80%, transparent);
   --tdgray6: color-mix(in srgb, var(--dgray6) 80%, transparent);
 
+  /* Espaçamentos */
+  --space-2xs: 0.25rem;
+  --space-xs:  0.5rem;
+  --space-sm:  0.75rem;
+  --space-md:  1rem;
+  --space-lg:  1.5rem;
+  --space-xl:  2rem;
+  --space-2xl: 3rem;
+
+  --gap-xs: var(--space-xs);
+  --gap-sm: var(--space-sm);
+  --gap-md: var(--space-md);
+  --gap-lg: var(--space-lg);
+
+  --padding-sm: var(--space-sm);
+  --padding-md: var(--space-md);
+  --padding-lg: var(--space-lg);
+
+  --margin-sm: var(--space-sm);
+  --margin-md: var(--space-md);
+  --margin-lg: var(--space-lg);
+
+  /* Superfícies */
   --surface-background-bg-color: var(--gray1);
 
   --surface-chrome-bg-color:     var(--gray2);
@@ -61,12 +85,21 @@
 
   --surface-chrome-layer-bg-color:     var(--gray3);
   --surface-chrome-layer-border-color: var(--gray4);
+  --surface-chrome-border-radius:      10px;
+  --surface-chrome-box-shadow:         0 0 1rem rgba(0, 0, 0, 0.25);
 
   --header-height: 2.75rem;
   --aside-width:   13.5rem;
-  --aside-padding: 1rem;
+  --aside-padding: var(--padding-md);
 
   --main-padding: 2rem;
+}
+
+.chrome-control {
+  background-color: var(--surface-chrome-layer-bg-color);
+  border:           1px solid var(--surface-chrome-layer-border-color);
+  border-radius:    var(--surface-chrome-border-radius);
+  box-shadow:       var(--surface-chrome-box-shadow);
 }
 
 body {
@@ -79,17 +112,10 @@ main {
   padding-top:  calc(var(--header-height) + 1px + var(--main-padding));
 }
 
-header, aside {
+.page-header, aside {
   position:         fixed;
   background-color: var(--surface-chrome-bg-color);
   border-color:     var(--surface-chrome-border-color);
-}
-
-header button, 
-aside button {
-  background-color: var(--surface-chrome-layer-bg-color);
-  border:           1px solid var(--surface-chrome-border-color);
-  border-radius:    var(--);
 }
 
 .page-header {
