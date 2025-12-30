@@ -152,6 +152,7 @@ main {
   padding:      var(--main-padding);
   padding-left: calc(var(--aside-width) + 1px + var(--main-padding));
   padding-top:  calc(var(--header-height) + 1px + var(--main-padding));
+  transition:   padding-left 0.3s ease;
 }
 
 .page-header, aside {
@@ -166,6 +167,7 @@ main {
   padding-left:        calc(var(--aside-width) + 1px);
   border-bottom-style: solid;
   border-bottom-width: 1px;
+  transition:          padding-left 0.3s ease;
 }
 
 aside {
@@ -175,4 +177,3 @@ aside {
   border-right-style: solid;
   border-right-width: 1px;
 }
-

@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
   Gear,
@@ -10,18 +11,34 @@ import {
 import '../styles/Aside.css'
 
 function Sidebar() {
+  const [isCollapsed, setIsCollapsed] = useState(false)
+  const [playIntro, setPlayIntro] = useState(false)
+
+  useEffect(() => {
+    if (!sessionStorage.getItem('sidebarIntroPlayed')) {
+      setPlayIntro(true)
+      sessionStorage.setItem('sidebarIntroPlayed', 'true')
+    }
+  }, [])
+
+  useEffect(() => {
+    document.documentElement.style.setProperty(
+      '--aside-width',
+      isCollapsed ? '4rem' : '13.5rem',
+    )
+  }, [isCollapsed])
+
   return (
-    <aside className="sidebar">
+    <aside
+      className={`sidebar${isCollapsed ? ' sidebar--collapsed' : ''}${
+        playIntro ? ' sidebar--intro' : ''
+      }`}
+    >
       <header className="sidebar-header">
-        <div>
-          <a className="chrome-control settings">
-            <Gear size={16} />
-          </a>
-          <a className="chrome-control account">
-            <Person size={16} />
-          </a>
-        </div>
-        <button className="chrome-control toggle-sidebar">
+        <button
+          className="chrome-control toggle-sidebar"
+          onClick={() => setIsCollapsed((current) => !current)}
+        >
           <LayoutSidebar size={16} />
         </button>
       </header>
@@ -52,6 +69,15 @@ function Sidebar() {
       <hr />
 
       <h6>Recentes</h6>
+
+      <footer className="sidebar-footer">
+        <button className="chrome-control settings" aria-label="Configurações">
+          <Gear size={16} />
+        </button>
+        <button className="chrome-control account" aria-label="Conta">
+          <Person size={16} />
+        </button>
+      </footer>
     </aside>
   )
 }
