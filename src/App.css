@@ -170,6 +170,10 @@ main {
   transition:   padding-left 0.3s ease;
 }
 
+.view-transitioning main {
+  transition: none;
+}
+
 .page-header, aside {
   position:         fixed;
   background-color: var(--surface-chrome-bg-color);
@@ -183,6 +187,10 @@ main {
   border-bottom-style: solid;
   border-bottom-width: 1px;
   transition:          padding-left 0.3s ease;
+}
+
+.view-transitioning .page-header {
+  transition: none;
 }
 
 aside {
