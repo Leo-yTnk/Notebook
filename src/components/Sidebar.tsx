@@ -7,6 +7,7 @@ import {
   LayoutSidebar,
   Person,
   Search,
+  PlusLg,
 } from 'react-bootstrap-icons'
 import '../styles/Aside.css'
 
@@ -35,6 +36,11 @@ function Sidebar() {
       }`}
     >
       <header className="sidebar-header">
+        <button
+          className="chrome-control new"
+        >
+          <PlusLg />
+        </button>
         <button
           className="chrome-control toggle-sidebar"
           onClick={() => setIsCollapsed((current) => !current)}
