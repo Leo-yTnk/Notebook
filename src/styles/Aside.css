@@ -6,6 +6,10 @@
   will-change:    width, padding;
 }
 
+.view-transitioning .sidebar {
+  transition: none;
+}
+
 .sidebar > * {
   flex-shrink: 0;
 }
@@ -124,21 +128,24 @@
 ::view-transition-group(sidebar-divider),
 ::view-transition-group(sidebar-title),
 ::view-transition-group(sidebar-footer) {
-  animation-duration: 0.3s;
-  animation-timing-function: linear;
+  animation: none;
+  overflow: clip;
 }
 
 ::view-transition-old(sidebar-header),
-::view-transition-new(sidebar-header),
 ::view-transition-old(sidebar-nav),
-::view-transition-new(sidebar-nav),
 ::view-transition-old(sidebar-divider),
-::view-transition-new(sidebar-divider),
 ::view-transition-old(sidebar-title),
+::view-transition-old(sidebar-footer) {
+  animation: sidebar-fade-out 0.2s ease forwards;
+}
+
+::view-transition-new(sidebar-header),
+::view-transition-new(sidebar-nav),
+::view-transition-new(sidebar-divider),
 ::view-transition-new(sidebar-title),
-::view-transition-old(sidebar-footer),
 ::view-transition-new(sidebar-footer) {
-  animation: none;
+  animation: sidebar-fade-in 0.2s ease forwards;
 }
 
 .sidebar hr {
@@ -156,5 +163,29 @@
 
   to {
     transform: translateX(0);
+  }
+}
+
+@keyframes sidebar-fade-in {
+  from {
+    opacity: 0;
+    transform: translateX(0.4rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes sidebar-fade-out {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(-0.4rem);
   }
 }

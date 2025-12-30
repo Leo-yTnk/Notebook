@@ -11,17 +11,25 @@ import {
 } from 'react-bootstrap-icons'
 import '../styles/Aside.css'
 
+type ViewTransition = {
+  finished: Promise<void>
+}
+
 function Sidebar() {
   const [isCollapsed, setIsCollapsed] = useState(false)
   const [playIntro, setPlayIntro] = useState(false)
   const toggleSidebar = () => {
     const documentWithViewTransition = document as Document & {
-      startViewTransition?: (callback: () => void) => void
+      startViewTransition?: (callback: () => void) => ViewTransition
     }
 
     if (documentWithViewTransition.startViewTransition) {
-      documentWithViewTransition.startViewTransition(() => {
+      document.documentElement.classList.add('view-transitioning')
+      const transition = documentWithViewTransition.startViewTransition(() => {
         setIsCollapsed((current) => !current)
+      })
+      transition.finished.finally(() => {
+        document.documentElement.classList.remove('view-transitioning')
       })
       return
     }
