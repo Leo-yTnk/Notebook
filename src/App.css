@@ -10,6 +10,9 @@
 
 :root {
   /* Paleta de Cores */
+  --highlight:  rgb(85, 50, 255);
+  --lhighlight: rgb(110, 80, 255);
+
   --gray1: var(--dgray1);
   --gray2: var(--dgray2);
   --gray3: var(--dgray3);
@@ -124,6 +127,18 @@ a.chrome-control,
 button.chrome-control {
   transition: background-color 0.3s;
   cursor:     pointer;
+}
+
+a.chrome-control.highlight,
+button.chrome-control.highlight {
+  background-color: var(--highlight);
+  border-color:     var(--highlight);
+}
+
+a.chrome-control.highlight:hover,
+button.chrome-control.highlight:hover {
+  background-color: var(--lhighlight);
+  border-color:     var(--lhighlight);
 }
 
 a.chrome-control:hover,
