@@ -79,21 +79,39 @@
 
   /* Superfícies */
   --surface-background-bg-color: var(--gray1);
+  --grid-color:                  var(--gray2);
+  --grid-size:                   1.75rem;  
 
   --surface-chrome-bg-color:     var(--gray2);
   --surface-chrome-border-color: var(--gray3);
 
-  --surface-chrome-layer-bg-color:     var(--gray3);
-  --surface-chrome-layer-border-color: var(--gray4);
-  --surface-chrome-border-radius:      10px;
-  --surface-chrome-box-shadow:         0 0 1rem rgba(0, 0, 0, 0.25);
+  --surface-chrome-layer-bg-color:       var(--gray3);
+  --surface-chrome-layer-hover-bg-color: var(--surface-chrome-layer-border-color);
+  --surface-chrome-layer-border-color:   var(--gray4);
+  --surface-chrome-border-radius:        10px;
+  --surface-chrome-box-shadow:           0 0 1rem rgba(0, 0, 0, 0.25);
 
   --header-height: 2.75rem;
   --aside-width:   13.5rem;
   --aside-padding: var(--padding-md);
 
   --main-padding: 2rem;
+
+  /* Tipografia */
+  --fs-1: 2.986rem;
+  --fs-2: 2.488rem;
+  --fs-3: 2.074rem;
+  --fs-4: 1.728rem;
+  --fs-5: 1.44rem;
+  --fs-6: 1.2rem;
 }
+
+h1 { font-size: var(--fs-1); }
+h2 { font-size: var(--fs-2); }
+h3 { font-size: var(--fs-3); }
+h4 { font-size: var(--fs-4); }
+h5 { font-size: var(--fs-5); }
+h6 { font-size: var(--fs-6); }
 
 .chrome-control {
   background-color: var(--surface-chrome-layer-bg-color);
@@ -102,8 +120,32 @@
   box-shadow:       var(--surface-chrome-box-shadow);
 }
 
+a.chrome-control,
+button.chrome-control {
+  transition: background-color 0.3s;
+  cursor:     pointer;
+}
+
+a.chrome-control:hover,
+button.chrome-control:hover {
+  background-color: var(--surface-chrome-layer-hover-bg-color);
+}
+
 body {
   background-color: var(--surface-background-bg-color);
+  background-image:
+  linear-gradient(
+    90deg,
+    var(--grid-color) 1px,
+    transparent 1px
+  ),
+  linear-gradient(
+    0deg,
+    var(--grid-color) 1px,
+    transparent 1px
+  );
+
+  background-size: var(--grid-size) var(--grid-size);
 }
 
 main {

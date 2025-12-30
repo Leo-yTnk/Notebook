@@ -4,6 +4,10 @@
   gap:            var(--gap-sm);
 }
 
+.sidebar hr {
+  border: 1px solid var(--surface-chrome-layer-border-color);
+}
+
 .sidebar-header {
   display:         flex;
   align-items:     center;

@@ -1,4 +1,5 @@
 import "../styles/Aside.css"
+import Link from 'react-router-dom'
 import { 
     Person, 
     Gear, 
@@ -52,6 +53,11 @@ function Home() {
                     </li>
                 </ul>
             </nav>
+
+            <hr />
+
+            <h6>Recentes</h6>
+
         </aside>
 
         <main>
