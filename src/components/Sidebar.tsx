@@ -43,7 +43,7 @@ function Sidebar() {
         </button>
       </header>
 
-      <nav className="sidebar-nav" ref={setAnimatedElement(1)}>
+      <nav className="sidebar-nav">
         <ul className="chrome-control">
           <li>
             <Link className="sidebar-nav-link" to="/">
@@ -66,9 +66,7 @@ function Sidebar() {
         </ul>
       </nav>
 
-      <hr ref={setAnimatedElement(2)} />
-
-      <h6 ref={setAnimatedElement(3)}>Recentes</h6>
+      <hr />
 
       <h6>Recentes</h6>
 
