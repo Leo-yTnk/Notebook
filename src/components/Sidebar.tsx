@@ -10,6 +10,17 @@ import {
 } from 'react-bootstrap-icons'
 import '../styles/Aside.css'
 
+const navItems = [
+  { to: '/', label: 'Início', Icon: House },
+  { to: '/search', label: 'Buscar', Icon: Search },
+  { to: '/notebooks', label: 'Cadernos', Icon: Journal },
+]
+
+const footerActions = [
+  { label: 'Configurações', Icon: Gear },
+  { label: 'Conta', Icon: Person },
+]
+
 function Sidebar() {
   const [isCollapsed, setIsCollapsed] = useState(false)
   const [playIntro, setPlayIntro] = useState(false)
@@ -45,24 +56,14 @@ function Sidebar() {
 
       <nav className="sidebar-nav">
         <ul className="chrome-control">
-          <li>
-            <Link className="sidebar-nav-link" to="/">
-              <House />
-              <span>Início</span>
-            </Link>
-          </li>
-          <li>
-            <Link className="sidebar-nav-link" to="/search">
-              <Search />
-              <span>Buscar</span>
-            </Link>
-          </li>
-          <li>
-            <Link className="sidebar-nav-link" to="/notebooks">
-              <Journal />
-              <span>Cadernos</span>
-            </Link>
-          </li>
+          {navItems.map(({ to, label, Icon }) => (
+            <li key={to}>
+              <Link className="sidebar-nav-link" to={to}>
+                <Icon />
+                <span>{label}</span>
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
 
@@ -71,12 +72,15 @@ function Sidebar() {
       <h6>Recentes</h6>
 
       <footer className="sidebar-footer">
-        <button className="chrome-control settings" aria-label="Configurações">
-          <Gear size={16} />
-        </button>
-        <button className="chrome-control account" aria-label="Conta">
-          <Person size={16} />
-        </button>
+        {footerActions.map(({ label, Icon }) => (
+          <button
+            key={label}
+            className="chrome-control"
+            aria-label={label}
+          >
+            <Icon size={16} />
+          </button>
+        ))}
       </footer>
     </aside>
   )
