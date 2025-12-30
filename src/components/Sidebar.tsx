@@ -37,7 +37,7 @@ function Sidebar() {
     >
       <header className="sidebar-header">
         <button
-          className="chrome-control highlight new"
+          className="chrome-control new"
         >
           <PlusLg />
         </button>
