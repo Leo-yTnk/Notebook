@@ -6,6 +6,10 @@
   will-change:    width, padding;
 }
 
+.sidebar > * {
+  flex-shrink: 0;
+}
+
 .sidebar hr {
   border: 1px solid var(--surface-chrome-layer-border-color);
 }
@@ -15,6 +19,7 @@
   align-items:     center;
   justify-content: space-between;
   width:           100%;
+  view-transition-name: sidebar-header;
 }
 
 .sidebar-header button {
@@ -30,6 +35,10 @@
   flex-direction: column;
   list-style:     none;
   overflow:       hidden;
+}
+
+.sidebar-nav {
+  view-transition-name: sidebar-nav;
 }
 
 .sidebar-nav ul li .sidebar-nav-link {
@@ -65,6 +74,7 @@
   justify-content: center;
   gap:             var(--gap-xs);
   margin-top:      auto;
+  view-transition-name: sidebar-footer;
 }
 
 .sidebar-footer button {
@@ -107,6 +117,36 @@
 
 .sidebar--intro {
   animation: sidebar-slide-in 0.45s ease-out;
+}
+
+::view-transition-group(sidebar-header),
+::view-transition-group(sidebar-nav),
+::view-transition-group(sidebar-divider),
+::view-transition-group(sidebar-title),
+::view-transition-group(sidebar-footer) {
+  animation-duration: 0.3s;
+  animation-timing-function: linear;
+}
+
+::view-transition-old(sidebar-header),
+::view-transition-new(sidebar-header),
+::view-transition-old(sidebar-nav),
+::view-transition-new(sidebar-nav),
+::view-transition-old(sidebar-divider),
+::view-transition-new(sidebar-divider),
+::view-transition-old(sidebar-title),
+::view-transition-new(sidebar-title),
+::view-transition-old(sidebar-footer),
+::view-transition-new(sidebar-footer) {
+  animation: none;
+}
+
+.sidebar hr {
+  view-transition-name: sidebar-divider;
+}
+
+.sidebar h6 {
+  view-transition-name: sidebar-title;
 }
 
 @keyframes sidebar-slide-in {

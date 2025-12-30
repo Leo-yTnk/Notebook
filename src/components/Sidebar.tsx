@@ -14,6 +14,20 @@ import '../styles/Aside.css'
 function Sidebar() {
   const [isCollapsed, setIsCollapsed] = useState(false)
   const [playIntro, setPlayIntro] = useState(false)
+  const toggleSidebar = () => {
+    const documentWithViewTransition = document as Document & {
+      startViewTransition?: (callback: () => void) => void
+    }
+
+    if (documentWithViewTransition.startViewTransition) {
+      documentWithViewTransition.startViewTransition(() => {
+        setIsCollapsed((current) => !current)
+      })
+      return
+    }
+
+    setIsCollapsed((current) => !current)
+  }
 
   useEffect(() => {
     if (!sessionStorage.getItem('sidebarIntroPlayed')) {
@@ -43,7 +57,7 @@ function Sidebar() {
         </button>
         <button
           className="chrome-control toggle-sidebar"
-          onClick={() => setIsCollapsed((current) => !current)}
+          onClick={toggleSidebar}
         >
           <LayoutSidebar size={16} />
         </button>
